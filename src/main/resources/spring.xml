@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <!--  TODO 配置bean的包扫描 暂时未完善 后续有时间加上这个功能  -->
+    <context base-packge="org.example.bean"/>
+
+    <beans>
+        <bean id="dept" class="org.example.bean.Dept">
+            <property name="id">1</property>
+            <property name="deptName">研发部</property>
+        </bean>
+
+        <bean id="user" class="org.example.bean.User">
+            <property name="name">胡龙神</property>
+            <property name="age">23</property>
+            <!--引用类型注入 被ref引用的对象bean 顺序要放在前面先实例化 因为对象这个注入的时候 需要用到这个实例-->
+            <property name="dept" ref="dept" />
+        </bean>
+
+        <bean id="user2" class="org.example.bean.User">
+            <property name="name">gaylin</property>
+            <property name="age">22</property>
+        </bean>
+    </beans>
+</config>
